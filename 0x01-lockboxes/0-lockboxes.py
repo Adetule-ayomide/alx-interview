@@ -16,7 +16,7 @@ def canUnlockAll(boxes):
         """ A function that check keys and add each key to visited"""
         visited.add(box_index)
         for key in boxes[box_index]:
-            if key < n and key not in visited:
+            if key <= n and key not in visited:
                 dfs(key)
 
     dfs(0)
