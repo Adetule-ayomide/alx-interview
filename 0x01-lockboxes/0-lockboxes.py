@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def canUnlockAll(boxes):
     n = len(boxes)
     visited = set()
@@ -10,6 +11,3 @@ def canUnlockAll(boxes):
 
     dfs(0)
     return len(visited) == n
-
-if __name__ == '__main__':
-    canUnlockAll(boxes);
