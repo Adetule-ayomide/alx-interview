@@ -11,12 +11,13 @@ def canUnlockAll(boxes):
     """ A function that checks if all boxes can be open """
     n = len(boxes)
     visited = set()
+    stack = [0]
 
-    def dfs(box_index):
+    while stack:
+        box_index = stack.pop()
         visited.add(box_index)
         for key in boxes[box_index]:
             if key < n and key not in visited:
-                dfs(key)
+                stack.append(key)
 
-    dfs(0)
     return len(visited) == n
