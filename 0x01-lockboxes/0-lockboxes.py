@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-from collections import deque
 
 """ You have n number of locked boxes in front of you.
     Each box is numbered sequentially from 0 to n - 1
@@ -12,13 +11,12 @@ def canUnlockAll(boxes):
     """ A function that checks if all boxes can be open """
     n = len(boxes)
     visited = set()
-    to_visit = deque([0])
 
-    while to_visit:
-        box_index = to_visit.popleft()
+    def dfs(box_index):
         visited.add(box_index)
         for key in boxes[box_index]:
             if key < n and key not in visited:
-                to_visit.append(key)
+                dfs(key)
 
+    dfs(0)
     return len(visited) == n
