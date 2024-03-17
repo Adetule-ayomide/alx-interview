@@ -11,13 +11,13 @@ def canUnlockAll(boxes):
     """ A function that checks if all boxes can be open """
     n = len(boxes)
     visited = set()
+    to_visit = deque([0])
 
-    def dfs(box_index):
-        """ A function that check keys and add each key to visited"""
+    while to_visit:
+        box_index = to_visit.popleft()
         visited.add(box_index)
         for key in boxes[box_index]:
             if key < n and key not in visited:
-                dfs(key)
+                to_visit.append(key)
 
-    dfs(0)
     return len(visited) == n
