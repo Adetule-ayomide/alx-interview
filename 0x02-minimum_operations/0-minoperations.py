@@ -24,9 +24,11 @@ def minOperations(n):
         min_ops[i] = float('inf')
 
         """ Check all factors of i and update min_ops[i]"""
+
         for j in range(1, int(i ** 0.5) + 1):
             if i % j == 0:
                 min_ops[i] = min(min_ops[i], min_ops[j] + i // j)
                 min_ops[i] = min(min_ops[i], min_ops[i // j] + j)
+
 
     return min_ops[n]
