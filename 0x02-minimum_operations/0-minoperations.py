@@ -5,7 +5,7 @@
     in this file: Copy All and Paste.
     Given a number n, write a method that calculates the fewest number of
     operations needed to result in exactly n H characters in the file.
-    
+
     Prototype: def minOperations(n)
     Returns an integer
     If n is impossible to achieve, return 0
@@ -32,6 +32,5 @@ def minOperations(n):
             if i % j == 0:
                 min_ops[i] = min(min_ops[i], min_ops[j] + i // j)
                 min_ops[i] = min(min_ops[i], min_ops[i // j] + j)
-
 
     return min_ops[n]
