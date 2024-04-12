@@ -2,6 +2,12 @@
 
 import sys
 
+"""
+    The N queens puzzle is the challenge of placing N
+    non-attacking queens on an N×N chessboard.
+    Write a program that solves the N queens problem.
+"""
+
 
 def is_safe(board, row, col, n):
     """Check if there is a queen in the same column"""
