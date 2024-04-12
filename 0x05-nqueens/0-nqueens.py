@@ -1,23 +1,22 @@
 #!/usr/bin/python3
-
 import sys
-
-"""
-    The N queens puzzle is the challenge of placing N
-    non-attacking queens on an N×N chessboard.
-    Write a program that solves the N queens problem.
-"""
 
 
 def is_safe(board, row, col, n):
+    """
+    Check if it's safe to place a queen at position (row, col) on the board.
+    """
+    # Check if there is a queen in the same column
     for i in range(row):
         if board[i][col] == 1:
             return False
 
+    # Check upper diagonal on left side
     for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
         if board[i][j] == 1:
             return False
 
+    # Check upper diagonal on right side
     for i, j in zip(range(row, -1, -1), range(col, n)):
         if board[i][j] == 1:
             return False
@@ -26,6 +25,7 @@ def is_safe(board, row, col, n):
 
 
 def solve_n_queens_util(board, row, n, solutions):
+    """Recursive function to solve the N Queens problem."""
     if row == n:
         solutions.append([(i, col) for i, col in enumerate(board[row - 1])])
         return
@@ -38,12 +38,14 @@ def solve_n_queens_util(board, row, n, solutions):
 
 
 def print_solution(solution):
+    """Print the N Queens solution in the specified format."""
     for row, col in solution:
         print("[{}, {}]".format(row, col), end=" ")
     print()
 
 
 def solve_n_queens(n):
+    """Solve the N Queens problem and print solutions."""
     if not n.isdigit():
         print("N must be a number")
         sys.exit(1)
