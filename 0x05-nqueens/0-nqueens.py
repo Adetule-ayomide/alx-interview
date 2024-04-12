@@ -36,9 +36,12 @@ def solve_n_queens_util(board, row, n, solutions):
 
 def print_solution(solution):
     """Print the N Queens solution in the specified format."""
+    print("[", end="")
     for row, col in solution:
-        print("[{}, {}]".format(row, col), end=" ")
-    print()
+        print("[{}, {}]".format(row, col), end="")
+        if (row, col) != solution[-1]:
+            print(", ", end="")
+    print("]")
 
 
 def solve_n_queens(n):
