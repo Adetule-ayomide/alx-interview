@@ -1,12 +1,6 @@
 #!/usr/bin/python3
+
 import sys
-
-"""
-    The N queens puzzle is the challenge of placing N non-attacking
-    queens on an NxN chessboard. Write a program that solves the N
-    queens problem.
-"""
-
 
 def is_safe(board, row, col, n):
     """Check if there is a queen in the same column"""
@@ -28,7 +22,7 @@ def is_safe(board, row, col, n):
 
 def solve_n_queens_util(board, row, n, solutions):
     if row == n:
-        solutions.append([[i, col] for i, col in enumerate(board[row - 1])])
+        solutions.append([(i, col) for i, col in enumerate(board[row - 1])])
         return
 
     for col in range(n):
@@ -36,6 +30,11 @@ def solve_n_queens_util(board, row, n, solutions):
             board[row][col] = 1
             solve_n_queens_util(board, row + 1, n, solutions)
             board[row][col] = 0
+
+def print_solution(solution):
+    for row, col in solution:
+        print("[{}, {}]".format(row, col), end=" ")
+    print()
 
 def solve_n_queens(n):
     if not n.isdigit():
@@ -50,7 +49,8 @@ def solve_n_queens(n):
     solutions = []
     solve_n_queens_util(board, 0, n, solutions)
     for solution in solutions:
-        print(solution)
+        print_solution(solution)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
