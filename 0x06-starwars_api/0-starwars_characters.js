@@ -2,7 +2,7 @@
 
 const axios = require('axios');
 
-function getMovieCharacters(movieId) {
+function getMovieCharacters (movieId) {
   return axios.get(`https://swapi.dev/api/films/${movieId}/`)
     .then(response => {
       return response.data.characters;
@@ -13,7 +13,7 @@ function getMovieCharacters(movieId) {
     });
 }
 
-function printMovieCharacters(movieId) {
+function printMovieCharacters (movieId) {
   getMovieCharacters(movieId)
     .then(characters => {
       if (characters.length > 0) {
@@ -28,7 +28,7 @@ function printMovieCharacters(movieId) {
 	    });
 	});
       } else {
-          console.log("No characters found for this movie.");
+          console.log('No characters found for this movie.');
       }
     });
 }
@@ -36,7 +36,7 @@ function printMovieCharacters(movieId) {
 const movieId = process.argv[2];
 
 if (!movieId) {
-  console.error("Usage: node script.js <movie_id>");
+  console.error('Usage: node script.js <movie_id>');
   process.exit(1);
 }
 
