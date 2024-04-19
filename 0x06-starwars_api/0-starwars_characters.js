@@ -2,7 +2,7 @@
 
 const axios = require('axios');
 
-function getMovieCharacters (movieId) {
+async function getMovieCharacters (movieId) {
   return axios.get(`https://swapi.dev/api/films/${movieId}/`)
     .then(response => {
       return response.data.characters;
@@ -13,7 +13,7 @@ function getMovieCharacters (movieId) {
     });
 }
 
-function printMovieCharacters (movieId) {
+async function printMovieCharacters (movieId) {
   getMovieCharacters(movieId)
     .then(characters => {
       if (characters.length > 0) {
