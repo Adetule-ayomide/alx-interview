@@ -17,7 +17,6 @@ function printMovieCharacters (movieId) {
   getMovieCharacters(movieId)
     .then(characters => {
       if (characters.length > 0) {
-        console.log(`Characters in Star Wars Episode ${movieId}:`);
         characters.forEach(characterUrl => {
           axios.get(characterUrl)
             .then(response => {
