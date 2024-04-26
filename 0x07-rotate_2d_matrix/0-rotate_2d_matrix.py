@@ -20,13 +20,3 @@ def rotate_2d_matrix(matrix):
     # Reverse rows
     for row in matrix:
         row.reverse()
-
-if __name__ == "__main__":
-    # Example usage
-    matrix = [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9]
-    ]
-
-    rotate_2d_matrix(matrix)
