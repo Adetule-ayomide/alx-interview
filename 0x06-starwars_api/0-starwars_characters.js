@@ -2,7 +2,7 @@
 
 const request = require('request');
 
-function getMovieCharacters(movieId) {
+function getMovieCharacters (movieId) {
   return new Promise((resolve, reject) => {
     const url = `https://swapi.dev/api/films/${movieId}/`;
     request(url, (error, response, body) => {
@@ -18,10 +18,10 @@ function getMovieCharacters(movieId) {
   });
 }
 
-function printMovieCharacters(movieId) {
+
+function printMovieCharacters (movieId) {
   getMovieCharacters(movieId)
     .then(characters => {
-      console.log(`Characters in Star Wars Episode ${movieId}:`);
       characters.forEach(characterUrl => {
         request(characterUrl, (error, response, body) => {
           if (error) {
@@ -39,6 +39,7 @@ function printMovieCharacters(movieId) {
       console.error(error.message);
     });
 }
+
 
 const movieId = process.argv[2];
 
