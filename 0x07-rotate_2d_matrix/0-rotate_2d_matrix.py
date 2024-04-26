@@ -9,19 +9,6 @@ def rotate_2d_matrix(matrix):
 
     Returns:
         None: The matrix is modified in-place.
-
-    Example:
-        >>> matrix = [
-        ...     [1, 2, 3],
-        ...     [4, 5, 6],
-        ...     [7, 8, 9]
-        ... ]
-        >>> rotate_2d_matrix(matrix)
-        >>> for row in matrix:
-        ...     print(row)
-        [7, 4, 1]
-        [8, 5, 2]
-        [9, 6, 3]
     """
     n = len(matrix)
     
@@ -33,3 +20,13 @@ def rotate_2d_matrix(matrix):
     # Reverse rows
     for row in matrix:
         row.reverse()
+
+if __name__ == "__main__":
+    # Example usage
+    matrix = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]
+
+    rotate_2d_matrix(matrix)
