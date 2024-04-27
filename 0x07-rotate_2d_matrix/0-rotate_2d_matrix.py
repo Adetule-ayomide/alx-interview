@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
-def rotate_2d_matrix(matrix):
-    """
+"""
     Rotate a 2D matrix by 90 degrees clockwise.
 
     Args:
@@ -9,7 +8,10 @@ def rotate_2d_matrix(matrix):
 
     Returns:
         None: The matrix is modified in-place.
-    """
+"""
+
+
+def rotate_2d_matrix(matrix):
     n = len(matrix)
     
     # Transpose the matrix
