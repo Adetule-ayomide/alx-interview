@@ -7,7 +7,7 @@
         A list of lists of integers representing the grid.
 
     Returns:
-        int: The perimeter of the island.
+        int: The perimeter of the island
 """
 
 
