@@ -12,6 +12,9 @@
 
 
 def island_perimeter(grid):
+    """
+    Function for the island perimeter
+    """
     if not grid:
         return 0
 
