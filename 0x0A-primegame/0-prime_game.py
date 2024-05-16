@@ -47,11 +47,10 @@ def play_game(n, primes):
     int: 0 if Ben wins, 1 if Maria wins.
     """
     board = [True] * (n + 1)
-    player_turn = 0  # 0 for Maria, 1 for Ben
+    player_turn = 0
     current_prime_index = 0
 
     while True:
-        # Find the next available prime number
         while (current_prime_index < len(primes) and
                 primes[current_prime_index] <= n and
                 not board[primes[current_prime_index]]):
@@ -61,14 +60,13 @@ def play_game(n, primes):
             break
 
         prime = primes[current_prime_index]
-        # Remove the prime and its multiples
+
         for multiple in range(prime, n + 1, prime):
             board[multiple] = False
 
-        # Switch turn
         player_turn = 1 - player_turn
 
-    return player_turn  # 0 if Ben wins, 1 if Maria wins
+    return player_turn
 
 
 def isWinner(x, nums):
