@@ -14,6 +14,16 @@ of the game and returns the player who won the most rounds.
 
 
 def sieve_of_eratosthenes(n):
+    """
+    Compute all prime numbers up to a given limit using
+    the Sieve of Eratosthenes algorithm.
+
+    Args:
+    n (int): The upper limit for calculating prime numbers.
+
+    Returns:
+    list: A list of prime numbers up to n.
+    """
     is_prime = [True] * (n + 1)
     p = 2
     while (p * p <= n):
