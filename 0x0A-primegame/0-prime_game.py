@@ -35,6 +35,17 @@ def sieve_of_eratosthenes(n):
 
 
 def play_game(n, primes):
+    """
+    Simulate a single game round with a given
+    upper limit and a list of prime numbers.
+
+    Args:
+    n (int): The upper limit of the set of consecutive integers.
+    primes (list): A list of prime numbers up to the maximum possible n.
+
+    Returns:
+    int: 0 if Ben wins, 1 if Maria wins.
+    """
     board = [True] * (n + 1)
     player_turn = 0
     current_prime_index = 0
@@ -59,6 +70,19 @@ def play_game(n, primes):
 
 
 def isWinner(x, nums):
+    """
+    Determine the winner of multiple rounds of the game.
+
+    Args:
+    x (int): The number of rounds.
+    nums (list):
+        A list of integers, each representing the upper limit of a round.
+
+    Returns:
+    str:
+        The name of the player that won the most rounds,
+        or None if there is no clear winner.
+    """
     max_num = max(nums)
     primes = sieve_of_eratosthenes(max_num)
 
